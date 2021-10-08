@@ -1,3 +1,4 @@
+
 # Speedy
 
 # Background
@@ -25,7 +26,9 @@ In Speedy:
 - Nav links include links to this project’s Github repo and my LinkedIn
 - Timer will start once player clicks
 - Instructions will display from the top right corner
-- Score will be computed and accumulated over levels at the bottom  
+- Score will be computed and accumulated over levels at the bottom 
+
+<img width="772" alt="Speedy Wireframe" src="https://user-images.githubusercontent.com/78869659/136586023-271bc9ad-409b-4476-bbdd-134b996fc15c.png">
 
 # Technologies, Libraries, APIs
 
@@ -46,9 +49,13 @@ In Speedy:
 
 Thursday: Submit initial and final proposals. Set up project and Git repo. Display layout of buttons and map using JS, HTML, and CSS. 
 
-Friday: Dedicate this day to researching and implementing path finding algorithms. By the end of the day, a player should be able to traverse the map and see precomputed optimal paths. The threshold required to level up should also be implemented. 
+Friday: Dedicate this day to researching and implementing path finding algorithms. By the end of the day, a player should be able to traverse the map and see precomputed optimal paths. The threshold required to level up should also be implemented. The visual display of the map and surrounding buttons should be complete by the end of the day. 
 
-Weekend: Finish up Friday’s work and refactor non-optimal code. Polish the UI (use an API for the grid if needed). Adjust game thresholds to make it harder/easier. Add obstacles for levels 2 and 3. 
+Weekend: Finish up Friday’s work and refactor non-optimal code. Polish the UI (use an API for the grid if needed (ie. if navigating around a static photo is less visually appealing)). Adjust game thresholds to make it harder/easier. 
 
-Monday - Wednesday: Add bonus features as well as additional pathfinding algorithms (possibly create a new algorithm). 
+Monday: Add arrow key functionality and incorporate obstacles into levels 2 and 3. Create an instructions guide that appears upon start. 
+
+Tuesday: Add bonus features (ie. sound, 3D icons for cars) as well as additional pathfinding algorithms (possibly create a new algorithm). 
+
+Wednesday: Dedicate this day to finishing styling. Possibly add a description of pathfinding algorithms (ie. an instructional guide) to the bottom of the game. 
 
