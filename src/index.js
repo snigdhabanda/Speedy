@@ -1,9 +1,11 @@
 
-const map = require("./map.js")
+import Game from "./game.js"
 
 document.addEventListener("DOMContentLoaded", () =>{
-
-    //create a new map 
+    const canvas = document.querySelector(".player");
+    const ctx = canvas.getContext('2d')
+    let game = new Game(ctx); 
+    
 })
 
 //files

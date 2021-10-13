@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,10 +9,34 @@
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js"></script>
     <title>Speedy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amaranth&display=swap');
+    </style>
+    <header>
+        <nav id="header-nav">
+            <h1 class="title">SPEEDY!</h1>
+            <ul class="links">
+                <li><a href="https://github.com/snigdhabanda/Speedy">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/snigdhabanda0/">LinkedIn</a></li>
+            </ul>
+        </nav>
+        
+    </header>
 </head>
-
+    
 <body>
+ 
+    <nav class="instructions"></nav>
+    <figure class="clock"></figure>
+    <figure class="game-window">
+        <img src="assets/map_sf.png">
+        <ul id="grid"></ul>
+        <canvas class="player" width="760" height="600"></canvas>
+       
+    </figure>
+   
+    
 </body>
 
+
 </html>
-```

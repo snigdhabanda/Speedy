@@ -1,0 +1,100 @@
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+.game-window {
+  display: block;
+  position: relative;
+}
+
+img {
+  display: block;
+  margin: 0px auto;
+  position: relative;
+  width: 760px;
+  height: auto;
+  z-index: 5;
+}
+
+#grid {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 0px;
+  right: 280px;
+  width: 760px;
+  height: 580px;
+  padding: 0px;
+  margin: auto;
+  z-index: 10;
+}
+
+.tile {
+  display: block;
+  border: solid white 1px;
+  box-sizing: border-box;
+  background-color: rgba(84, 177, 84, 0.8);
+  width: 30px;
+  height: 20px;
+  margin: 0px;
+  z-index: 10;
+}
+
+.hidden {
+  border: none;
+  background-color: transparent;
+}
+
+.driven {
+  background-color: white;
+}
+
+canvas {
+  top: 0px;
+  right: 280px;
+  position: absolute;
+  z-index: 20;
+}
+
+header {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+#header-nav {
+  display: flex;
+  margin-top: 0px;
+  background-color: #302424;
+}
+
+#header-nav h1 {
+  font-family: "Amaranth", sans-serif;
+  font-size: 50px;
+  color: white;
+  margin: auto;
+  text-transform: lowercase;
+}
+
+.links {
+  display: flex;
+  width: 300px;
+  list-style: none;
+}
+.links li {
+  border: solid white;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 30%;
+  background-color: sandybrown;
+}
+.links a {
+  font-family: "Amaranth", sans-serif;
+  text-decoration: none;
+}
+
+body {
+  display: block;
+  margin-top: 150px;
+}

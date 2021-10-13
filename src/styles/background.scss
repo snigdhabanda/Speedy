@@ -1,0 +1,50 @@
+
+header{
+    display:block; 
+    position: absolute; 
+    top: 0px;
+    left: 0px;
+    width: 100%; 
+}
+#header-nav{
+    display: flex; 
+    margin-top: 0px;
+    background-color: rgb(48, 36, 36);
+    // rgb(233, 120, 92);  
+    
+}
+
+#header-nav h1{
+    font-family: 'Amaranth', sans-serif;
+    font-size: 50px;
+    color: white; 
+    // width: 300px; 
+    margin: auto; 
+    text-transform: lowercase; 
+}
+
+.links{
+    display: flex; 
+    width: 300px; 
+    list-style: none;
+
+    li{
+        border: solid white; 
+        padding: 10px;  
+        margin: 10px; 
+        border-radius: 30%;
+        background-color: sandybrown;
+    }
+
+    a{
+        font-family: "Amaranth", sans-serif;
+        text-decoration: none; 
+    }
+}
+
+body{
+    display: block;
+    margin-top: 150px;
+}
+
+
