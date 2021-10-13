@@ -8,8 +8,10 @@ class Game{
         this.grid = this.renderGrid()
         this.player = this.renderPlayer(this.grid, ctx); 
         this.passenger = new Passenger(this.grid, ctx)
+
+        this.grabbedPassenger = false; 
     
-        // this.start(ctx);
+        this.start(ctx);
 
     }
 
@@ -28,34 +30,47 @@ class Game{
         return new Passenger(grid, ctx)
     }
 
-    win(){
-        const grabbedPassenger = true
-        if (this.player.currPos === this.passenger.startPos){
-            grabbedPassenger = true
+    checkWin(grabbedPassenger){
+        
+        if (this.player.currPos[0] == this.passenger.startPos[0] && this.player.currPos[1] === this.passenger.startPos[1]){
+            // alert("hello")
+            var grabbedPassenger = true
+            console.log(grabbedPassenger)
+            
         }
-        if (grabbedPassenger && this.player.currPos === this.passenger.endPos){
-            const done = true
+        if (grabbedPassenger && (this.player.currPos[0] === this.passenger.endPos[0] && this.player.currPos[1] === this.passenger.endPos[1])){
+            alert("hello")
         }
     }
 
-    lose(){
+    checkLose(){
 
     }
 
     
     start(ctx){
-        //create player (initializes with random pos and dir & renders)
-        //timer function that calls move callback from player
-        //check for lose on loop 
 
-        //render player upon key click
-        //
+        const player = this.player 
+        const game = this 
+        var started = false; 
+        var keys = [37,38,39,40]
 
-        
+        var beginGame = function(event){
+            if (event.code === 'Space' && !started){
+                player.firstRender(ctx)
+                let x = player.currPos[0]
+                let y = player.currPos[1]
+                player.move(ctx, x, y)
+                started = true;   
+            }
+            else if (keys.includes(event.keyCode)) {
+                game.checkWin()
+            }
+      
+        }
 
-        
-        
 
+       document.addEventListener('keydown', beginGame)
     }
 
 }

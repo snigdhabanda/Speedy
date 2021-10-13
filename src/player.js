@@ -22,10 +22,8 @@ class Player{
         // console.log(x, y)
 
         
-        let x =  this.currPos[0]
-        let y = this.currPos[1]
-       
-        this.render(ctx, this.orient_yneg.bind(this, ctx, x, y), this.orient_xneg.bind(this, ctx, x, y), this.orient_xpos.bind(this, ctx, x, y), this.orient_ypos.bind(this, ctx, x, y), this.clear.bind(this, ctx, this))
+        
+        
     
     }
 
@@ -189,6 +187,27 @@ class Player{
         
     }
 
+    firstRender(ctx){
+       console.log(this.currPos)
+        if (this.startDir === this.DIRS[0]){
+            this.orient_ypos(ctx, this.currPos[0], this.currPos[1], 0, 0)
+        }
+        else if (this.startDir === this.DIRS[1]){
+            this.orient_yneg(ctx, this.currPos[0], this.currPos[1], 0, 0)
+        }
+        else if (this.startDir === this.DIRS[2]){
+            this.orient_xneg(ctx, this.currPos[0], this.currPos[1], 0, 0)
+        }
+        else if (this.startDir === this.DIRS[3]){
+            this.orient_xpos(ctx, this.currPos[0], this.currPos[1], 0, 0)
+        }
+    }
+
+    move(ctx, x, y){
+       
+        this.render(ctx, this.orient_yneg.bind(this, ctx, x, y), this.orient_xneg.bind(this, ctx, x, y), this.orient_xpos.bind(this, ctx, x, y), this.orient_ypos.bind(this, ctx, x, y), this.clear.bind(this, ctx, this))
+
+    }
 
     render(ctx, orient_yneg, orient_xneg, orient_xpos, orient_ypos, clear){
 
@@ -208,28 +227,28 @@ class Player{
                 clear()
                 orient_yneg(dx, dy)
                 currPos[1] = currPos[1] + 20
-                console.log(currPos)   
+                // console.log(currPos)   
             }
             else if (e.keyCode == '38'){
                 dy -= 20
                 clear()
                 orient_ypos(dx, dy)
                 currPos[1] = currPos[1] - 20 
-                console.log(currPos)
+                // console.log(currPos)
             }
             else if (e.keyCode == '37'){
                 dx -= 30
                 clear()
                 orient_xneg(dx, dy)
                 currPos[0] = currPos[0] - 30 
-                console.log(currPos)
+                // console.log(currPos)
             }
             else if (e.keyCode == '39'){
                 dx += 30
                 clear()
                 orient_xpos(dx, dy)
                 currPos[0] = currPos[0] + 30
-                console.log(currPos)
+                // console.log(currPos)
             }
             
         }

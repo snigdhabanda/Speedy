@@ -8,6 +8,7 @@ header{
 }
 #header-nav{
     display: flex; 
+    justify-content: space-between;
     margin-top: 0px;
     background-color: rgb(48, 36, 36);
     // rgb(233, 120, 92);  
@@ -45,6 +46,7 @@ header{
 body{
     display: block;
     margin-top: 150px;
+    
 }
 
 

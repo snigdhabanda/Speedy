@@ -65,6 +65,7 @@ header {
 
 #header-nav {
   display: flex;
+  justify-content: space-between;
   margin-top: 0px;
   background-color: #302424;
 }

@@ -9,7 +9,7 @@ class Passenger extends Player{
         this.renderPassenger(ctx)
         this.renderDestination(ctx)
         
-        console.log(this.startPos)
+        // console.log(this.startPos)
         
     }
 
@@ -19,7 +19,7 @@ class Passenger extends Player{
     }
 
     renderPassenger(ctx){
-        console.log(this.startPos)
+        // console.log(this.startPos)
         ctx.fillStyle = '#f56f42';
         ctx.beginPath();
         ctx.arc(this.startPos[0]+15, this.startPos[1] + 8, 4, 0, 2 * Math.PI, false);
