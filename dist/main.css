@@ -67,9 +67,8 @@ header {
   display: flex;
   justify-content: space-between;
   margin-top: 0px;
-  background-color: #302424;
+  background-color: #2e1a1a;
 }
-
 #header-nav h1 {
   font-family: "Amaranth", sans-serif;
   font-size: 50px;
@@ -98,4 +97,69 @@ header {
 body {
   display: block;
   margin-top: 150px;
+  background-color: linear-gradient(#bd4545, #4583bd);
+}
+
+.clock {
+  display: block;
+  position: absolute;
+  left: 1000px;
+  top: 170px;
+  border: solid black;
+  height: 60px;
+  width: 60px;
+  margin: auto;
+  border-radius: 50%;
+  display: flex;
+  z-index: 50;
+}
+
+.seconds-hand {
+  position: absolute;
+  height: 28px;
+  left: 30px;
+  border: solid black 1px;
+  transform-origin: 50% 100%;
+  z-index: 50;
+}
+
+.im-a-modal {
+  display: block;
+  border: solid black 2px;
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  left: 480px;
+  top: 200px;
+  box-shadow: 5px -5px;
+  z-index: 60;
+  border-radius: 14%;
+  background-color: #fad0d7;
+  opacity: 0.98;
+}
+.im-a-modal .header {
+  display: block;
+  border: solid black;
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  left: 140px;
+  top: 30px;
+  text-align: center;
+}
+.im-a-modal .body {
+  display: block;
+  border: solid black;
+  position: absolute;
+  width: 260px;
+  height: 180px;
+  left: 120px;
+  top: 80px;
+  text-align: center;
+}
+
+.modal-hidden {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
 }

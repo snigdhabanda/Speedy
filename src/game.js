@@ -1,6 +1,7 @@
 import Grid from "./grid"
 import Player from "./player"
 import Passenger from "./passenger"
+import Clock from "./clock"
 
 
 class Game{
@@ -8,11 +9,9 @@ class Game{
         this.grid = this.renderGrid()
         this.player = this.renderPlayer(this.grid, ctx); 
         this.passenger = new Passenger(this.grid, ctx)
-
+        this.clock = new Clock()
         this.grabbedPassenger = false; 
     
-        this.start(ctx);
-
     }
 
     renderGrid(){
@@ -30,47 +29,35 @@ class Game{
         return new Passenger(grid, ctx)
     }
 
-    checkWin(grabbedPassenger){
-        
-        if (this.player.currPos[0] == this.passenger.startPos[0] && this.player.currPos[1] === this.passenger.startPos[1]){
-            // alert("hello")
-            var grabbedPassenger = true
-            console.log(grabbedPassenger)
-            
+    checkWin(){
+        if (this.player.currPos[0] === this.passenger.startPos[0] && this.player.currPos[1] === this.passenger.startPos[1]){
+           this.grabbedPassenger = true
         }
-        if (grabbedPassenger && (this.player.currPos[0] === this.passenger.endPos[0] && this.player.currPos[1] === this.passenger.endPos[1])){
-            alert("hello")
+        if (this.grabbedPassenger && (this.player.currPos[0] === this.passenger.destination[0] && this.player.currPos[1] === this.passenger.destination[1])){
+            alert("won!!")
+            clearInterval(this.clock.Id)
         }
     }
 
     checkLose(){
+        if (this.clock.timeOver()){
+            alert("youlose")
+        }
 
     }
 
     
     start(ctx){
-
         const player = this.player 
         const game = this 
-        var started = false; 
         var keys = [37,38,39,40]
 
-        var beginGame = function(event){
-            if (event.code === 'Space' && !started){
-                player.firstRender(ctx)
-                let x = player.currPos[0]
-                let y = player.currPos[1]
-                player.move(ctx, x, y)
-                started = true;   
-            }
-            else if (keys.includes(event.keyCode)) {
-                game.checkWin()
-            }
-      
-        }
+        this.player.firstRender(ctx)
+        let x = this.player.currPos[0]
+        let y = player.currPos[1]
+        this.player.move(ctx, x, y)
+        game.clock.countTime(20)
 
-
-       document.addEventListener('keydown', beginGame)
     }
 
 }

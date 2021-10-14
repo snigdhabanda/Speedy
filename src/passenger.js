@@ -4,7 +4,6 @@ class Passenger extends Player{
     constructor(grid, ctx){
         super(grid, ctx); 
         this.startPos = this.getRandomPos()
-        this.endPos = this.getRandomPos()
         this.destination = this.getRandomPos()
         this.renderPassenger(ctx)
         this.renderDestination(ctx)

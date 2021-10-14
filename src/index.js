@@ -1,10 +1,10 @@
 
-import Game from "./game.js"
+import View from "./view.js"
 
 document.addEventListener("DOMContentLoaded", () =>{
     const canvas = document.querySelector(".player");
     const ctx = canvas.getContext('2d')
-    let game = new Game(ctx); 
+    let view = new View(ctx); 
     
 })
 

@@ -1,0 +1,43 @@
+
+.im-a-modal{
+    display: block;
+    border: solid black 2px; 
+    position: absolute;
+    width: 500px; 
+    height: 300px; 
+    left: 480px;
+    top: 200px;  
+    box-shadow: 5px -5px ;
+    z-index: 60; 
+   border-radius: 14%;
+   background-color: rgb(250, 208, 215); 
+   opacity: .98; 
+
+   .header{
+    display: block;
+    border: solid black; 
+    position: absolute;
+    width: 200px; 
+    height: 50px; 
+    left: 140px;
+    top: 30px; 
+    text-align: center;  
+   }
+
+   .body{
+    display: block;
+    border: solid black; 
+    position: absolute;
+    width: 260px; 
+    height: 180px; 
+    left: 120px;
+    top: 80px; 
+    text-align: center; 
+   }
+}
+
+.modal-hidden{
+    border: none;
+    box-shadow: none; 
+    background-color: transparent;
+}

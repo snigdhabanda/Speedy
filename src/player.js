@@ -204,7 +204,6 @@ class Player{
     }
 
     move(ctx, x, y){
-       
         this.render(ctx, this.orient_yneg.bind(this, ctx, x, y), this.orient_xneg.bind(this, ctx, x, y), this.orient_xpos.bind(this, ctx, x, y), this.orient_ypos.bind(this, ctx, x, y), this.clear.bind(this, ctx, this))
 
     }
@@ -271,7 +270,7 @@ class Player{
 
     getRandomPos(){
 
-        //have to remove hidden tiles  
+          
         const x_pos = []
         const y_pos = []
 
@@ -283,12 +282,16 @@ class Player{
             y_pos.push(ele[0].getStartPos()[1])
         })
 
-        const x = x_pos[Math.round(Math.random() * x_pos.length)]
-        const y = y_pos[Math.round(Math.random() * y_pos.length)]
         
-        return [x,y]
-
-
+        
+        while (true){
+            const x = x_pos[Math.round(Math.random() * x_pos.length)]
+            const y = y_pos[Math.round(Math.random() * y_pos.length)]
+            if (document.getElementById(`${x},${y}`).className.split(" ")[1] !== "hidden"){
+                return [x,y]
+            }
+        }
+       
     }
 
     getRandomDir(){

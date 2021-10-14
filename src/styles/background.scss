@@ -10,19 +10,21 @@ header{
     display: flex; 
     justify-content: space-between;
     margin-top: 0px;
-    background-color: rgb(48, 36, 36);
-    // rgb(233, 120, 92);  
+    background-color: rgb(46, 26, 26);
+    // rgb(233, 120, 92); 
+    
+    h1{
+        font-family: 'Amaranth', sans-serif;
+        font-size: 50px;
+        color: white; 
+        // width: 300px; 
+        margin: auto; 
+        text-transform: lowercase; 
+    }
     
 }
 
-#header-nav h1{
-    font-family: 'Amaranth', sans-serif;
-    font-size: 50px;
-    color: white; 
-    // width: 300px; 
-    margin: auto; 
-    text-transform: lowercase; 
-}
+
 
 .links{
     display: flex; 
@@ -46,6 +48,8 @@ header{
 body{
     display: block;
     margin-top: 150px;
+    background-color: linear-gradient(rgb(189, 69, 69), rgb(69, 131, 189))
+
     
 }
 
