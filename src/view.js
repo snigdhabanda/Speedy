@@ -74,7 +74,6 @@ class View{
         this.ctx.clearRect(0,0,canvas.width,canvas.height);
         this.load(this.ctx, this.grid)
 
-
     }
 
     afterLose(){
@@ -103,20 +102,14 @@ class View{
         var beginGame = function(event){
             if (event.code === 'Space' && !view.gameStarted){
                 view.gameStarted = true; 
-                console.log("game started!")
                 view.modalDisappear()
                 game.start(ctx)
 
             }
             else if (view.gameStarted && [37,38,39,40].includes(event.keyCode)){
                 game.checkWin()
-                // console.log("pressed")
-                // console.log(game.player.currPos)
-                // console.log(game.passenger.destination)
-                // console.log(game.win)
-                console.log(game.grabbedPassenger)
+
                 if (game.win){
-                    console.log("win!")
                     view.gameStarted = false 
                     game.win = false; 
                     clearInterval(id)
@@ -127,11 +120,9 @@ class View{
         }
 
         function checkforLose(){
-            console.log("checking for lose")
-            console.log(game.clock.timeOver)
-            console.log(game.lose)
+           
             if (game.checkLose()){
-                console.log("time over!")
+            
                 clearInterval(id)
                 view.loseModalAppear();
                 view.afterLose()

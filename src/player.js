@@ -2,7 +2,6 @@ import Grid from "./grid"
 
 class Player{
     constructor(grid, ctx){
-        // console.log(grid)
         this.grid = grid.layout; 
         this.startPos = this.getRandomPos();
         
@@ -13,19 +12,6 @@ class Player{
         this.currDir = this.startDir; 
         
         
-
-        // const pos = `${this.startPos[0]},${this.startPos[0]}`
-        // console.log(pos)
-        // const li = document.getElementById(pos)
-        // console.log(li)
-        // const x = li.offsetLeft
-        // const y = li.offsetTop; 
-        // console.log(x, y)
-
-        
-        
-        
-    
     }
 
     orient_xpos(ctx, x , y, dx, dy){
@@ -189,7 +175,6 @@ class Player{
     }
 
     firstRender(ctx){
-       console.log(this.currPos)
         if (this.startDir === this.DIRS[0]){
             this.orient_ypos(ctx, this.currPos[0], this.currPos[1], 0, 0)
         }
@@ -227,7 +212,6 @@ class Player{
                 orient_yneg(dx, dy)
                 currPos[1] = currPos[1] + 20
                
-                // console.log(currPos)   
             }
             else if (e.keyCode == '38'){
                 dy -= 20
@@ -235,7 +219,6 @@ class Player{
                 orient_ypos(dx, dy)
                 currPos[1] = currPos[1] - 20 
              
-                // console.log(currPos)
             }
             else if (e.keyCode == '37'){
                 dx -= 30
@@ -243,15 +226,13 @@ class Player{
                 orient_xneg(dx, dy)
                 currPos[0] = currPos[0] - 30
                 
-                // console.log(currPos)
             }
             else if (e.keyCode == '39'){
                 dx += 30
                 clear()
                 orient_xpos(dx, dy)
                 currPos[0] = currPos[0] + 30
-                
-                // console.log(currPos)
+              
             }
             
         }

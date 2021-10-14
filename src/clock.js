@@ -23,9 +23,7 @@ class Clock {
                 return;
                
             }
-            countSecs += 1; 
-            console.log(countSecs)
-            
+            countSecs += 1;             
             clock.updateClock(countSecs, interval)
         }
 

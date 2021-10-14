@@ -40,10 +40,8 @@ class Game{
            this.grabbedPassenger = true
         }
         if (this.grabbedPassenger && (this.player.currPos[0] === this.passenger.destination[0] && this.player.currPos[1] === this.passenger.destination[1])){
-            // console.log(this.clock.Id)
             clearInterval(this.clock.Id)
             this.grabbedPassenger = false; 
-            // console.log(this.win)
             this.win = true
         }
     }
