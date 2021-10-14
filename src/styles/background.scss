@@ -3,23 +3,26 @@ header{
     display:block; 
     position: absolute; 
     top: 0px;
-    left: 0px;
+    left: 0px; 
     width: 100%; 
 }
 #header-nav{
     display: flex; 
-    justify-content: space-between;
+    // justify-content: space-between;
     margin-top: 0px;
     background-color: rgb(46, 26, 26);
-    // rgb(233, 120, 92); 
-    
+    position: relative; 
     h1{
+        position: absolute; 
+        left: 650px; 
+        top: 10px; 
         font-family: 'Amaranth', sans-serif;
         font-size: 50px;
         color: white; 
         // width: 300px; 
         margin: auto; 
         text-transform: lowercase; 
+        
     }
     
 }

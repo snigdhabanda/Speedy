@@ -8,7 +8,7 @@ class Grid{
         this.height = Y_DIM
         
         this.layout = [] //2D array to hold all tiles in the grid  
-        this.place_tiles()
+        // this.place_tiles()
     }
 
 
@@ -33,10 +33,10 @@ class Grid{
                 li.setAttribute("id", j + "," + i)
                 ul.appendChild(li); 
 
-                // if (((j < 160 && i <= 210) || (j <= 560 && i <= 90) || (j <= 20 && i <= 720) || ( j < 560 && i >= 660))){
-                //     this.hide_tiles(li)
-                // }
-
+                if ((j <= 180 && i<= 140) || (j <= 90 && i <= 560) || (j <= 120 && i >= 440) || (i <= 40 && j <= 720) || (i <= 360 && j >= 660) || (i >= 500 && j >= 660) || (j >= 600 && i <= 80) || (j >= 600 && i <= 120) || (i === 420 && j >= 690) || (i <= 420 && j >= 720) || (j >= 690 && i === 440) || (j <= 220 && i <= 150)){
+                    this.hide_tiles(li)
+                }
+               
             }
             this.layout.push(tile_row)
             

@@ -9,14 +9,12 @@ class Clock {
         const degreesRotate = 360 / interval
         const deg = degreesRotate * secs
         div.style.transform = `rotate(${+deg}deg)`
-     
-
-       
     }
 
     countTime(interval){
         const clock = this;  
         var countSecs = 0; 
+        // console.log(clock.timeOver)
         
         function update(){
            
@@ -24,6 +22,7 @@ class Clock {
                 clock.timeOver = true
                 clearInterval(clock.Id); 
                 return;
+               
             }
             countSecs += 1; 
             clock.updateClock(countSecs, interval)

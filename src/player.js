@@ -2,7 +2,9 @@ import Grid from "./grid"
 
 class Player{
     constructor(grid, ctx){
+        console.log(grid)
         this.grid = grid.layout; 
+        console.log(this.grid)
         this.startPos = this.getRandomPos();
         
         this.DIRS = [[0,1], [0,-1], [-1,0], [1,0]]
@@ -267,6 +269,14 @@ class Player{
 
         
     }
+    getRandomDir(){
+        let rand = Math.random() * this.DIRS.length
+        if (rand >= 3.5) rand = Math.floor(rand); 
+        else rand = Math.round(rand);
+
+        return this.DIRS[rand]
+
+    }
 
     getRandomPos(){
 
@@ -287,20 +297,14 @@ class Player{
         while (true){
             const x = x_pos[Math.round(Math.random() * x_pos.length)]
             const y = y_pos[Math.round(Math.random() * y_pos.length)]
-            if (document.getElementById(`${x},${y}`).className.split(" ")[1] !== "hidden"){
-                return [x,y]
-            }
-        }
+            // if (document.getElementById(`${x},${y}`).className.split(" ").length > 1){
+            //     if (document.getElementById(`${x},${y}`).className.split(" ")[1] !== "hidden"){
+            //     return [x,y]
+            // }
+            // }
+            return [x,y]
        
-    }
-
-    getRandomDir(){
-        let rand = Math.random() * this.DIRS.length
-        if (rand >= 3.5) rand = Math.floor(rand); 
-        else rand = Math.round(rand);
-
-        return this.DIRS[rand]
-
+        }
     }
 
     

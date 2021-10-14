@@ -31,6 +31,8 @@ img{
 
 }
 
+
+
 .tile{
     display: block; 
     border: solid white 1px; 
@@ -60,4 +62,8 @@ canvas{
     position: absolute;
     z-index: 20;
 
+}
+
+#grid .grid-hidden{
+    display: none; 
 }
