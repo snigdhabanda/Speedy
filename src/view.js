@@ -19,8 +19,7 @@ class View{
         this.gameStarted = false 
         
         this.elements = [modal, header, body, button]
-        // console.log(this.elements)
-
+        
         this.load(ctx, this.grid)
 
         
@@ -40,7 +39,7 @@ class View{
         })
         this.elements[3].classList.add("modal-button-hidden")
         this.elements[1].innerText = "instructions"
-        this.elements[2].innerText = "Speedy is making rideshare more affordable and faster, and it has just selected you as a test driver! Use the up/down/left/right keys to finish your ride before time runs out. Press the space bar to start driving."
+        this.elements[2].innerText = "Speedy is making rideshare more affordable and faster, and it has just selected you as a test driver! Use the up/down/left/right keys to finish your ride before time runs out. Press the space bar to start driving. And stay on the grid!"
         
 
     }
@@ -58,7 +57,6 @@ class View{
     }
 
     loseModalAppear(){
-        console.log("hello")
         this.elements.forEach((ele, idx) =>{
             ele.classList.remove("modal-hidden")
         })
@@ -74,9 +72,6 @@ class View{
     restart(){
         const canvas = document.querySelector('canvas');
         this.ctx.clearRect(0,0,canvas.width,canvas.height);
-        this.gameStarted = false 
-        
-        // debugger
         this.load(this.ctx, this.grid)
 
 
@@ -84,13 +79,13 @@ class View{
 
     afterLose(){
         const button = document.querySelector(".modal-button")
-        console.log("hello")
         button.addEventListener("click", () => {
             this.restart()
         })
     }
 
     afterWin(){
+        
         const button = document.querySelector(".modal-button")
         button.addEventListener("click", () => {
 
@@ -101,23 +96,29 @@ class View{
 
     load(ctx, grid){
         const view = this
-        console.log(this.grid)
         const game = new Game(ctx, grid);
-        const count = 0
+
         this.instructionsModalAppear(); 
 
         var beginGame = function(event){
             if (event.code === 'Space' && !view.gameStarted){
                 view.gameStarted = true; 
-                console.log(true)
+                console.log("game started!")
                 view.modalDisappear()
                 game.start(ctx)
 
             }
             else if (view.gameStarted && [37,38,39,40].includes(event.keyCode)){
-                console.log(game.passenger.startPos)
-                console.log("pressed")
-                if (game.checkWin()){
+                game.checkWin()
+                // console.log("pressed")
+                // console.log(game.player.currPos)
+                // console.log(game.passenger.destination)
+                // console.log(game.win)
+                console.log(game.grabbedPassenger)
+                if (game.win){
+                    console.log("win!")
+                    view.gameStarted = false 
+                    game.win = false; 
                     clearInterval(id)
                     view.winModalAppear();
                     view.afterWin()
@@ -126,11 +127,17 @@ class View{
         }
 
         function checkforLose(){
+            console.log("checking for lose")
+            console.log(game.clock.timeOver)
+            console.log(game.lose)
             if (game.checkLose()){
-                console.log(id)
+                console.log("time over!")
                 clearInterval(id)
                 view.loseModalAppear();
-                view.afterLose() 
+                view.afterLose()
+                view.gameStarted = false 
+                game.lose = false; 
+                return;  
             }
 
         }

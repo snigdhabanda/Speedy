@@ -90,11 +90,12 @@ header {
   list-style: none;
 }
 .links li {
-  border: solid white;
+  border: solid white 2px;
   padding: 10px;
   margin: 10px;
-  border-radius: 30%;
+  border-radius: 10%;
   background-color: sandybrown;
+  box-shadow: 2px -2px gray;
 }
 .links a {
   font-family: "Amaranth", sans-serif;
@@ -132,7 +133,7 @@ body {
 
 .im-a-modal {
   display: block;
-  border: solid black 2px;
+  border: solid gray 1px;
   position: absolute;
   width: 500px;
   height: 300px;
@@ -140,9 +141,7 @@ body {
   top: 200px;
   box-shadow: 5px -5px;
   z-index: 60;
-  border-radius: 14%;
   background-color: #be4f4f;
-  opacity: 0.96;
 }
 .im-a-modal .header {
   display: block;

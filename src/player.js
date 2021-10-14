@@ -2,9 +2,8 @@ import Grid from "./grid"
 
 class Player{
     constructor(grid, ctx){
-        console.log(grid)
+        // console.log(grid)
         this.grid = grid.layout; 
-        console.log(this.grid)
         this.startPos = this.getRandomPos();
         
         this.DIRS = [[0,1], [0,-1], [-1,0], [1,0]]
@@ -206,6 +205,7 @@ class Player{
     }
 
     move(ctx, x, y){
+        // console.log(x,y)
         this.render(ctx, this.orient_yneg.bind(this, ctx, x, y), this.orient_xneg.bind(this, ctx, x, y), this.orient_xpos.bind(this, ctx, x, y), this.orient_ypos.bind(this, ctx, x, y), this.clear.bind(this, ctx, this))
 
     }
@@ -254,20 +254,6 @@ class Player{
             
         }
 
-        
-        // document.addEventListener("keydown", (e) => {
-        //     switch(e.keycode){
-        //         case 37:
-        //             dx -= 30
-        //         case 38:
-        //             dy -= 20;
-        //         case 39:
-        //             dx += 30;
-        //         case 40:
-        //             dy += 20;
-        //     }
-
-        
     }
     getRandomDir(){
         let rand = Math.random() * this.DIRS.length
@@ -297,12 +283,12 @@ class Player{
         while (true){
             const x = x_pos[Math.round(Math.random() * x_pos.length)]
             const y = y_pos[Math.round(Math.random() * y_pos.length)]
-            // if (document.getElementById(`${x},${y}`).className.split(" ").length > 1){
-            //     if (document.getElementById(`${x},${y}`).className.split(" ")[1] !== "hidden"){
-            //     return [x,y]
-            // }
-            // }
-            return [x,y]
+            
+            const li = document.getElementById(`${x},${y}`)
+
+            if (li.className.split(" ")[1] !== "hidden"){
+                return [x,y] 
+            }
        
         }
     }

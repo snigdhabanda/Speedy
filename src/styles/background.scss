@@ -35,11 +35,12 @@ header{
     list-style: none;
 
     li{
-        border: solid white; 
+        border: solid white 2px; 
         padding: 10px;  
         margin: 10px; 
-        border-radius: 30%;
+        border-radius: 10%;
         background-color: sandybrown;
+        box-shadow: 2px -2px gray;
     }
 
     a{

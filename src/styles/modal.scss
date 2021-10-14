@@ -1,7 +1,7 @@
 
 .im-a-modal{
     display: block;
-    border: solid black 2px; 
+    border: solid gray 1px; 
     position: absolute;
     width: 500px; 
     height: 300px; 
@@ -9,10 +9,9 @@
     top: 200px;  
     box-shadow: 5px -5px ;
     z-index: 60; 
-   border-radius: 14%;
    background-color: rgb(190, 79, 79);
 //    rgb(250, 208, 215); 
-   opacity: .96; 
+//    opacity: .96; 
 
    
 

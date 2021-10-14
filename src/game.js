@@ -8,36 +8,31 @@ class Game{
     constructor(ctx, grid){
 
         this.grid = grid
-        console.log(this.grid.layout)
-        const canvas = document.querySelector('canvas');
-        ctx.clearRect(0,0,canvas.width,canvas.height);
+
+        // const canvas = document.querySelector('canvas');
+        // ctx.clearRect(0,0,canvas.width,canvas.height);
         
         this.player = this.renderPlayer(this.grid, ctx); 
-        console.log(this.player.currPos)
-        this.passenger = new Passenger(this.grid, ctx)
-        console.log(this.passenger.startPos)
-        this.clock = new Clock()
+        this.passenger = this.renderPassenger(this.grid, ctx)
+        this.clock = this.renderClock()
+        
         this.grabbedPassenger = false; 
         this.win = false;
         this.lose = false; 
         
     }
 
-    renderGrid(){
-        // const grid = document.querySelector("#grid")
-        // const X_DIM = grid.offsetWidth
-        // const Y_DIM = grid.offsetHeight
-        // const newGrid = new Grid(X_DIM, Y_DIM);
-        // newGrid.placeTiles(); 
-        // return grid; 
-    }
 
     renderPlayer(grid, ctx){
         return new Player(grid, ctx)
     }
 
-    renderPassenger(){
+    renderPassenger(grid, ctx){
         return new Passenger(grid, ctx)
+    }
+
+    renderClock(){
+        return new Clock()
     }
 
     checkWin(){
@@ -45,18 +40,21 @@ class Game{
            this.grabbedPassenger = true
         }
         if (this.grabbedPassenger && (this.player.currPos[0] === this.passenger.destination[0] && this.player.currPos[1] === this.passenger.destination[1])){
+            // console.log(this.clock.Id)
             clearInterval(this.clock.Id)
-            this.win = true
             this.grabbedPassenger = false; 
+            // console.log(this.win)
+            this.win = true
         }
-        return this.win
     }
 
     checkLose(){
         let x = this.player.currPos[0]
         let y = this.player.currPos[1]
-        // || document.getElementById(`${x},${y}`).className.split(" ")[1] === "hidden"
-        if (this.clock.timeOver ){
+        const li = document.getElementById(`${x},${y}`)
+        var offMap = false; 
+        if (li.className.split(" ")[1] === "hidden"){offMap = true}
+        if (this.clock.timeOver || offMap){
             this.lose = true
         }
         return this.lose
@@ -64,15 +62,12 @@ class Game{
 
     
     start(ctx){
-
         this.player.firstRender(ctx)
-        let x = this.player.currPos[0]
-        let y = this.player.currPos[1]
+        var x = this.player.currPos[0]
+        var y = this.player.currPos[1]
+        // console.log(x,y)
         this.player.move(ctx, x, y)
         this.clock.countTime(12)
-        
-        
-
     }
 
 }
