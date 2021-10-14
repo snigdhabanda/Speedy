@@ -147,54 +147,5 @@ class View{
     }
 }
 
-//fix spacing on winmodal
-//losemodal --> create button for new game
-//newGame (function restart, this calls game again)
-
-
-//game: levelup function; restart --> load, with counter, counter triggers; passes in reduced time to clock
-//once count hits 2 (after 3 levels) ==> create array of random colors; randomly pick 2 colors to render passenger with; pass these into the house
-//call render passenger more than once
-//increase time on clock
-//levels 4,5,6
-
-//hide tiles 
-//keyanimationframes 
-//disable scroll functionality
-//disable play functionality on modals 
-//add buttons to modals
-//make tiles different color after traversing; toggle between 2 colors 
-//add level
-//add sound
-//add instructions button 
-//add message about rendering to full screen
-//fix movement problem
-//fix multiple cars rendering after 2 loses 
-//rerender car
-//by 10pm
-
-//start bfs
-//do dfs 
-
-
-//first page load:
-//load game, instructions modal 
-//click space bar ==> game begins
-//modal bg transparent, no box shadow, divs transparent, no borders, remove text
-
-//view checks game status
-
-//lose:
-//if time runs out
-//display lose instructions
-//click space bar ==> new game 
-
-//win:
-//game.won = true
-//display win instructions
-//increment level counter
-//pass counter into game
-//game changes conditions (1), reduced time, 2) reduced time, roadblock, more passengers
-
 
 export default View; 

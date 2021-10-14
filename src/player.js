@@ -205,14 +205,12 @@ class Player{
     }
 
     move(ctx, x, y){
-        // console.log(x,y)
         this.render(ctx, this.orient_yneg.bind(this, ctx, x, y), this.orient_xneg.bind(this, ctx, x, y), this.orient_xpos.bind(this, ctx, x, y), this.orient_ypos.bind(this, ctx, x, y), this.clear.bind(this, ctx, this))
 
     }
 
     render(ctx, orient_yneg, orient_xneg, orient_xpos, orient_ypos, clear){
 
-        document.onkeydown = checkKey
         var dx = 0;
         var dy = 0; 
 
@@ -228,6 +226,7 @@ class Player{
                 clear()
                 orient_yneg(dx, dy)
                 currPos[1] = currPos[1] + 20
+               
                 // console.log(currPos)   
             }
             else if (e.keyCode == '38'){
@@ -235,13 +234,15 @@ class Player{
                 clear()
                 orient_ypos(dx, dy)
                 currPos[1] = currPos[1] - 20 
+             
                 // console.log(currPos)
             }
             else if (e.keyCode == '37'){
                 dx -= 30
                 clear()
                 orient_xneg(dx, dy)
-                currPos[0] = currPos[0] - 30 
+                currPos[0] = currPos[0] - 30
+                
                 // console.log(currPos)
             }
             else if (e.keyCode == '39'){
@@ -249,11 +250,13 @@ class Player{
                 clear()
                 orient_xpos(dx, dy)
                 currPos[0] = currPos[0] + 30
+                
                 // console.log(currPos)
             }
             
         }
 
+        document.onkeydown = checkKey
     }
     getRandomDir(){
         let rand = Math.random() * this.DIRS.length
