@@ -119,6 +119,10 @@ body {
   z-index: 1;
 }
 
+audio {
+  position: absolute;
+}
+
 .clock {
   display: block;
   position: absolute;
