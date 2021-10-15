@@ -4,7 +4,7 @@ class Player{
     constructor(grid, ctx){
         this.grid = grid.layout; 
         this.startPos = this.getRandomPos();
-        
+        console.log("new player")
         this.DIRS = [[0,1], [0,-1], [-1,0], [1,0]]
         this.startDir = this.getRandomDir();
         
@@ -265,9 +265,26 @@ class Player{
         
         
         while (true){
-            const x = x_pos[Math.round(Math.random() * x_pos.length)]
-            const y = y_pos[Math.round(Math.random() * y_pos.length)]
-            
+            const x = Math.random() * x_pos.length
+            const y = Math.random() * y_pos.length
+
+            if (x >= x_pos.length - 0.5) {
+                x = x_pos[Math.floor(x)]
+            }
+            else{
+                x = x_pos[Math.round(x)]
+            }
+
+            if (y >= y_pos.length - 0.5) {
+                y = y_pos[Math.floor(y)]
+            }
+            else{
+                y = y_pos[Math.round(y)]
+            }
+
+            // const x = x_pos[Math.round(Math.random() * x_pos.length )]
+            // const y = y_pos[Math.round(Math.random() * y_pos.length)]
+
             const li = document.getElementById(`${x},${y}`)
 
             if (li.className.split(" ")[1] !== "hidden"){

@@ -1,8 +1,8 @@
-import Player from "./player"
 
-class Passenger extends Player{
+
+class Passenger{
     constructor(grid, ctx){
-        super(grid, ctx); 
+        this.grid = grid.layout
         this.startPos = this.getRandomPos()
         this.destination = this.getRandomPos()
         this.renderPassenger(ctx)
@@ -14,7 +14,49 @@ class Passenger extends Player{
 
     
     getRandomPos(){
-      return super.getRandomPos.call(this)
+      
+          
+        const x_pos = []
+        const y_pos = []
+
+        this.grid[0].forEach((ele)=>{
+            x_pos.push(ele.getStartPos()[0])
+        })
+
+        this.grid.forEach((ele)=>{
+            y_pos.push(ele[0].getStartPos()[1])
+        })
+
+        
+        
+        while (true){
+            const x = Math.random() * x_pos.length
+            const y = Math.random() * y_pos.length
+
+            if (x >= x_pos.length - 0.5) {
+                x = x_pos[Math.floor(x)]
+            }
+            else{
+                x = x_pos[Math.round(x)]
+            }
+
+            if (y >= y_pos.length - 0.5) {
+                y = y_pos[Math.floor(y)]
+            }
+            else{
+                y = y_pos[Math.round(y)]
+            }
+
+            // const x = x_pos[Math.round(Math.random() * x_pos.length )]
+            // const y = y_pos[Math.round(Math.random() * y_pos.length)]
+
+            const li = document.getElementById(`${x},${y}`)
+
+            if (li.className.split(" ")[1] !== "hidden"){
+                return [x,y] 
+            }
+       
+        }
     }
 
     renderPassenger(ctx){

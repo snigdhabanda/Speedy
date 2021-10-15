@@ -50,9 +50,11 @@ class Game{
         let x = this.player.currPos[0]
         let y = this.player.currPos[1]
         const li = document.getElementById(`${x},${y}`)
+        console.log(this.clock.timeOver)
         var offMap = false; 
         if (li.className.split(" ")[1] === "hidden"){offMap = true}
         if (this.clock.timeOver || offMap){
+            clearInterval(this.clock.Id)
             this.lose = true
         }
         return this.lose

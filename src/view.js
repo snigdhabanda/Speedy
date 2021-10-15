@@ -98,17 +98,19 @@ class View{
         const game = new Game(ctx, grid);
 
         this.instructionsModalAppear(); 
-
+        console.log(game.clock.Id)
         var beginGame = function(event){
             if (event.code === 'Space' && !view.gameStarted){
                 view.gameStarted = true; 
                 view.modalDisappear()
                 game.start(ctx)
+                
 
             }
             else if (view.gameStarted && [37,38,39,40].includes(event.keyCode)){
                 game.checkWin()
-
+                console.log(game.player.currPos)
+                
                 if (game.win){
                     view.gameStarted = false 
                     game.win = false; 
@@ -134,6 +136,7 @@ class View{
         }
         document.addEventListener('keydown', beginGame)
         var id = setInterval(checkforLose, 1000)
+        
 
     }
 }
