@@ -1,66 +1,32 @@
 
-
 class Passenger{
-    constructor(grid, ctx){
-        this.grid = grid.layout
-        this.startPos = this.getRandomPos()
-        this.destination = this.getRandomPos()
+    constructor(startPos, endPos, ctx){
+        
+        this.startPos = startPos
+        this.destination = endPos
         this.renderPassenger(ctx)
         this.renderDestination(ctx)
-        
-        // console.log(this.startPos)
+       
         
     }
 
-    
-    getRandomPos(){
-      
-          
-        const x_pos = []
-        const y_pos = []
+    getStartPosX(){
+        return this.startPos[0] 
+    }
 
-        this.grid[0].forEach((ele)=>{
-            x_pos.push(ele.getStartPos()[0])
-        })
+    getStartPosY(){
+        return this.startPos[1] 
+    }
 
-        this.grid.forEach((ele)=>{
-            y_pos.push(ele[0].getStartPos()[1])
-        })
+    getEndPosX(){
+        return this.destination[0] 
+    }
 
-        
-        
-        while (true){
-            const x = Math.random() * x_pos.length
-            const y = Math.random() * y_pos.length
-
-            if (x >= x_pos.length - 0.5) {
-                x = x_pos[Math.floor(x)]
-            }
-            else{
-                x = x_pos[Math.round(x)]
-            }
-
-            if (y >= y_pos.length - 0.5) {
-                y = y_pos[Math.floor(y)]
-            }
-            else{
-                y = y_pos[Math.round(y)]
-            }
-
-            // const x = x_pos[Math.round(Math.random() * x_pos.length )]
-            // const y = y_pos[Math.round(Math.random() * y_pos.length)]
-
-            const li = document.getElementById(`${x},${y}`)
-
-            if (li.className.split(" ")[1] !== "hidden"){
-                return [x,y] 
-            }
-       
-        }
+    getEndPosY(){
+        return this.destination[1] 
     }
 
     renderPassenger(ctx){
-        // console.log(this.startPos)
         ctx.fillStyle = '#f56f42';
         ctx.beginPath();
         ctx.arc(this.startPos[0]+15, this.startPos[1] + 8, 4, 0, 2 * Math.PI, false);

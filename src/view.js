@@ -16,8 +16,9 @@ class View{
         const Y_DIM = grid.offsetHeight
         this.grid = new Grid(X_DIM, Y_DIM);
         this.grid.place_tiles()
-        this.gameStarted = false 
         
+        
+        this.gameStarted = false
         this.elements = [modal, header, body, button]
         
         this.load(ctx, this.grid)
@@ -97,23 +98,31 @@ class View{
         const view = this
         const game = new Game(ctx, grid);
 
+        //create new game
+        //gamestarted = false
+        //clock timeover = false
+        //grabbed passenger = false
+        //clear clock interval 
+      
+        var id; 
+
         this.instructionsModalAppear(); 
-        console.log(game.clock.Id)
+        
+        
+
         var beginGame = function(event){
             if (event.code === 'Space' && !view.gameStarted){
+                console.log("hello")
                 view.gameStarted = true; 
                 view.modalDisappear()
                 game.start(ctx)
-                
-
+                id = setInterval(checkforLose, 500)
+             
             }
             else if (view.gameStarted && [37,38,39,40].includes(event.keyCode)){
-                game.checkWin()
-                console.log(game.player.currPos)
                 
-                if (game.win){
+                if (game.checkWin()){
                     view.gameStarted = false 
-                    game.win = false; 
                     clearInterval(id)
                     view.winModalAppear();
                     view.afterWin()
@@ -124,18 +133,21 @@ class View{
         function checkforLose(){
            
             if (game.checkLose()){
-            
+                view.gameStarted = false 
                 clearInterval(id)
                 view.loseModalAppear();
                 view.afterLose()
-                view.gameStarted = false 
-                game.lose = false; 
+                
+                console.log(game.clock.timeOver)
                 return;  
+
             }
 
         }
+
         document.addEventListener('keydown', beginGame)
-        var id = setInterval(checkforLose, 1000)
+        
+
         
 
     }

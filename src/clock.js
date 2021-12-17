@@ -14,6 +14,7 @@ class Clock {
     countTime(interval){
         const clock = this;  
         var countSecs = 0; 
+        
        
         function update(){
            
@@ -25,6 +26,7 @@ class Clock {
             }
             countSecs += 1;             
             clock.updateClock(countSecs, interval)
+            console.log(countSecs)
         }
 
        this.Id = setInterval(update, 1000) 
